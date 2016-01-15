@@ -1,0 +1,40 @@
+﻿<catel:DataWindow x:Class="TemperatureMonitor.Views.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				  xmlns:catel="http://catel.codeplex.com"
+                  xmlns:ViewModels="clr-namespace:TemperatureMonitor.ViewModels"
+                  xmlns:Common="clr-namespace:TemperatureMonitor.Common"
+                  ShowInTaskbar="True" ResizeMode="NoResize" SizeToContent="Height"
+                  Width="500" Height="600">
+
+    <!-- Resources -->
+
+    <catel:DataWindow.Resources>
+        <Common:VarianceToBrushConverter x:Key="myVarianceToBrushConverter"></Common:VarianceToBrushConverter>
+    </catel:DataWindow.Resources>
+
+    <!-- Content -->
+
+    <Grid>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Temperature Monitor" FontWeight="Bold" FontSize="24"  />
+        <Label Content="State" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Margin="12,51,0,0" />
+        <ListBox ItemsSource="{Binding States}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedState}" Height="183" HorizontalAlignment="Left" Margin="12,80,0,0" Name="lbState" VerticalAlignment="Top" Width="195" />
+        <Label Content="City" Margin="273,51,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30" />
+        <ListBox ItemsSource="{Binding SelectedState.Cities}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCity}" Height="183" Margin="273,80,0,0" Name="lbCity" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195" />
+        <Label Content="Station ID" HorizontalAlignment="Left" Margin="12,284,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Text="{Binding ElementName=lbCity, Path=SelectedItem.Id}" Height="23" HorizontalAlignment="Left" Margin="12,313,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" IsReadOnly="True" Background="LightGray" />
+        <DatePicker SelectedDate="{Binding SelectedDate}" Height="25" Margin="273,311,0,0" Name="datePicker1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115" />
+        <Label Content="Date" Margin="273,284,0,0" Name="label4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="35" />
+        <Label Content="Predicted Average Temperature" HorizontalAlignment="Left" Margin="12,355,0,0" Name="label5" VerticalAlignment="Top" />
+        <TextBox Text="{Binding PredictedTemperature}" Background="LightGray" Height="23" HorizontalAlignment="Left" IsReadOnly="True" Margin="12,385,0,0" Name="textBox2" VerticalAlignment="Top" Width="37" />
+        <Label Content="(degree celsius)" HorizontalAlignment="Left" Margin="52,382,0,0" Name="label6" VerticalAlignment="Top" />
+        <Label Content="Actual Temperature" Margin="273,355,0,0" Name="label7" VerticalAlignment="Top" HorizontalAlignment="Left" Width="114" />
+        <TextBox Text="{Binding ActualTemperature, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Height="23" Margin="273,385,0,0" Name="textBox3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="37" />
+        <Label Content="(degree celsius)" Margin="313,382,0,0" Name="label8" VerticalAlignment="Top" HorizontalAlignment="Left" Width="92" />
+        <Label Content="Variance" HorizontalAlignment="Left" Margin="12,429,0,0" Name="label9" VerticalAlignment="Top" />
+        <TextBox Text="{Binding Variance}" Background="{Binding Variance,Converter={StaticResource myVarianceToBrushConverter}}" Height="23" HorizontalAlignment="Left" IsReadOnly="True" Margin="12,459,0,0" Name="textBox4" VerticalAlignment="Top" Width="37" />
+        <Label Content="(degree celsius)" HorizontalAlignment="Left" Margin="52,456,0,0" Name="label10" VerticalAlignment="Top" />
+        <Button Content="Calculate Variance" Command="{Binding CalculateVarianceCommand}"  Height="23" Margin="273,518,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="114" />
+        <Button Content="Reset" Command="{Binding ResetCommand}" Height="23" Margin="404,518,0,0" Name="button2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="64" />
+    </Grid>
+</catel:DataWindow>
