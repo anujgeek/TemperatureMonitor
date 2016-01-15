@@ -8,7 +8,7 @@ FrontEnd: C#, WPF, Catel
 Testing: MSTest Unit Testing
 
 ## Description
-Easily type in Hindi using an English keyboard. Supports all half-characters and all special character combinations.
+Temperature Monitor is a sample application based on C# & WPF based on MVVM pattern (using Catel MVVM framework).  demonstrate few of the important features of
 
 ## Demo
 
