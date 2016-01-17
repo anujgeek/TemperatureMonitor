@@ -3,12 +3,12 @@ Created by: Anuj Agrawal (Website: http://www.anujgeek.com/)
 <br>
 Created using:
 <br>
-FrontEnd: C#, WPF, Catel
+FrontEnd: C#, WPF, Catel framework
 <br>
 Testing: MSTest Unit Testing
 
 ## Description
-Temperature Monitor is a sample application based on C# & WPF based on MVVM pattern (using Catel MVVM framework).  demonstrate few of the important features of
+Sample application created using C# and WPF following MVVM pattern (using Catel framework). It follows WPF best practices and demonstrates many of the important features of the WPF system. The project also features a comprehensive set of unit test cases (using MSTest).
 
 ## Demo
 
