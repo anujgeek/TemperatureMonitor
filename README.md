@@ -16,4 +16,4 @@ Sample application created using C# and WPF following MVVM pattern (using Catel 
 
 ## Notes
 
-To get the projects up and running, intall Catel.Extensions.Controls package from NuGet package manager.
+To get the projects up and running, install Catel.Extensions.Controls package from NuGet package manager.
